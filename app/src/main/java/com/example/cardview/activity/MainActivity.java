@@ -1,10 +1,13 @@
 package com.example.cardview.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.GridLayout;
+import android.widget.LinearLayout;
 
 import com.example.cardview.R;
 import com.example.cardview.adapter.PostagemAdapter;
@@ -26,8 +29,12 @@ public class MainActivity extends AppCompatActivity {
         recyclerPostagem = findViewById(R.id.recyclerView);
 
         //Layout
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        //LinearLayoutManager layoutManager = new LinearLayoutManager(this); //criando o linearlayout manager
+        //layoutManager.setOrientation(LinearLayout.HORIZONTAL); //opção 1 - criando a orientação para arrastar lateralmente
 
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 1); //criando a grid, no paremetro Spamcount definir a qtde de colunas
+
+        //RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerPostagem.setLayoutManager(layoutManager);
 
         //Definindo o Adapter
